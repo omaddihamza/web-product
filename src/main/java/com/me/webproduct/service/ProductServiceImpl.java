@@ -15,7 +15,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> listProduct() {
-        return List.of();
+        return productRepository.findAll();
     }
 
     @Override
@@ -25,7 +25,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product getProduct(Long id) {
-        return null;
+        return productRepository.findById(id).get();
     }
 
     @Override

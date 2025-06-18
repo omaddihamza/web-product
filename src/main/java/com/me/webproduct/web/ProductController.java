@@ -4,6 +4,8 @@ package com.me.webproduct.web;
 import com.me.webproduct.entities.Product;
 import com.me.webproduct.service.ProductServiceImpl;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -11,9 +13,10 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 public class ProductController {
-    //tcest
+
     private final ProductServiceImpl productServiceImpl;
 
+    @GetMapping("/products")
     public List<Product> listProduct() {
         return productServiceImpl.listProduct();
     }
@@ -22,7 +25,8 @@ public class ProductController {
         return productServiceImpl.saveProduct(product);
     }
 
-    public Product getProduct(Long id) {
+    @GetMapping("product/{id}")
+    public Product getProduct(@PathVariable Long id) {
         return productServiceImpl.getProduct(id);
     }
 
