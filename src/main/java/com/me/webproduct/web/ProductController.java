@@ -4,14 +4,13 @@ package com.me.webproduct.web;
 import com.me.webproduct.entities.Product;
 import com.me.webproduct.service.ProductServiceImpl;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class ProductController {
 
     private final ProductServiceImpl productServiceImpl;
@@ -30,7 +29,8 @@ public class ProductController {
         return productServiceImpl.getProduct(id);
     }
 
-    public void deleteProduct(Long id) {
+    @DeleteMapping("/product/{id}")
+    public void deleteProduct(@PathVariable Long id) {
         productServiceImpl.deleteProduct(id);
     }
 }

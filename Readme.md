@@ -1,0 +1,1 @@
+<img src="/src/main/resources/images/img.png">
